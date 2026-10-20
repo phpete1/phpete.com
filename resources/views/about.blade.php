@@ -11,7 +11,7 @@
         </p>
 
         <p class="text-lg leading-[1.7] text-text-soft">
-            In my spare time I write <a href="#" class="text-text underline decoration-line decoration-1 underline-offset-4 transition-colors hover:text-accent hover:decoration-accent">my own music</a> and play piano.
+            In my spare time I write <a href="https://soundcloud.com/jerzykmusic" class="text-text underline decoration-line decoration-1 underline-offset-4 transition-colors hover:text-accent hover:decoration-accent">my own music</a> and play piano.
         </p>
     </x-section>
 </x-layouts.app>
