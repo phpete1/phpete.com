@@ -4,6 +4,64 @@
 @source '../../storage/framework/views/*.php';
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+    --color-bg: #121110;
+    --color-line: #262321;
+    --color-text: #ebe4da;
+    --color-text-soft: #b4aca2;
+    --color-muted: #8f877d;
+    --color-accent: #e8664c;
+
+    --font-sans: var(--font-geist), system-ui, sans-serif;
+    --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+    --font-serif: var(--font-newsreader), Georgia, serif;
+}
+
+@layer base {
+    html {
+        color-scheme: dark;
+        background-color: var(--color-bg);
+    }
+
+    body {
+        color: var(--color-text);
+        font-family: var(--font-sans);
+        -webkit-font-smoothing: antialiased;
+    }
+
+    /* Background: warm glow + faint dot grid */
+    body::before,
+    body::after {
+        content: '';
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
+    }
+
+    body::before {
+        background:
+            radial-gradient(ellipse 70% 45% at 50% 110%, rgb(232 102 76 / 0.13), transparent 70%),
+            radial-gradient(ellipse 45% 35% at 100% 0%, rgb(240 150 90 / 0.05), transparent 70%);
+    }
+
+    body::after {
+        background-image: radial-gradient(rgb(235 228 218 / 0.07) 1px, transparent 1px);
+        background-size: 24px 24px;
+        mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 20%, transparent 75%);
+    }
+
+    a:focus-visible {
+        outline: 1px solid var(--color-accent);
+        outline-offset: 4px;
+    }
+}
+
+@layer components {
+    .menu-item[aria-current='page']::before {
+        content: '[';
+    }
+
+    .menu-item[aria-current='page']::after {
+        content: ']';
+    }
 }
