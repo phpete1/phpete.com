@@ -37,6 +37,14 @@ class ProjectsPageTest extends TestCase
             ->assertDontSee('href="https://github.com/phpete1/setting-store"', false);
     }
 
+    public function test_rows_are_staggered_and_tags_scramble_in(): void
+    {
+        $response = $this->get(route('projects'));
+
+        $response->assertSeeInOrder(['--i: 0', '--i: 1', '--i: 2'], false)
+            ->assertSee('data-scramble', false);
+    }
+
     public function test_the_header_marks_projects_as_the_current_page(): void
     {
         $response = $this->get(route('projects'));

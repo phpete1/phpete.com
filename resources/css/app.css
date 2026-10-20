@@ -112,3 +112,52 @@
         opacity: 0;
     }
 }
+
+/* Projects entrance: each row's divider draws in orange then cools, the name rises, tags decode (scramble.js) */
+@layer components {
+    .enter-row {
+        position: relative;
+    }
+
+    .enter-row::after {
+        content: '';
+        position: absolute;
+        inset: auto 0 0;
+        height: 1px;
+        background: var(--color-line);
+        transform-origin: left;
+        animation:
+            draw-line 0.6s cubic-bezier(0.65, 0, 0.35, 1) calc(var(--i, 0) * 120ms + 150ms) both,
+            cool-line 0.9s ease calc(var(--i, 0) * 120ms + 700ms) both;
+    }
+
+    .enter-rise {
+        animation: rise 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) calc(var(--i, 0) * 120ms + 300ms) both;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .enter-row::after,
+        .enter-rise {
+            animation: none;
+        }
+    }
+}
+
+@keyframes draw-line {
+    from {
+        transform: scaleX(0);
+    }
+}
+
+@keyframes cool-line {
+    from {
+        background: var(--color-accent);
+    }
+}
+
+@keyframes rise {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+}
