@@ -12,6 +12,14 @@
         <title>{{ $title ? "{$title} · phpete.com" : 'phpete.com' }}</title>
         <meta name="description" content="{{ $description }}">
 
+        {{-- Hide [data-type] text before first paint so it can type in; skipped for reduced motion. Safety net un-hides it if the script never runs. --}}
+        <script>
+            if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.documentElement.classList.add('will-type');
+                setTimeout(() => document.documentElement.classList.remove('will-type'), 3000);
+            }
+        </script>
+
         @fonts
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>

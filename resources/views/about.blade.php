@@ -1,5 +1,5 @@
 <x-layouts.app>
-    <x-section label="about">
+    <x-section label="about" typed>
         <h1 class="text-[32px] font-semibold tracking-tight">Pete</h1>
 
         <p class="text-lg leading-[1.7] text-text-soft">

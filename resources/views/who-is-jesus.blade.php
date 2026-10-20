@@ -1,5 +1,5 @@
 <x-layouts.app title="Who is Jesus?" description="Who Jesus is, and why Pete follows Him.">
-    <x-section label="who is Jesus?">
+    <x-section label="who is Jesus?" typed>
         <h1 class="text-[32px] font-semibold tracking-tight">Who is Jesus?</h1>
 
         <p class="text-lg leading-[1.7] text-text-soft">

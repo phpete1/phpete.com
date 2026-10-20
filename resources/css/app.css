@@ -65,3 +65,50 @@
         content: ']';
     }
 }
+
+/* Type-in effect (resources/js/type-in.js) */
+@layer components {
+    .will-type [data-type] {
+        visibility: hidden;
+    }
+
+    .tw {
+        opacity: 0;
+        transition: opacity 0.14s ease-out;
+    }
+
+    .tw.on {
+        opacity: 1;
+    }
+
+    .caret {
+        position: relative;
+        display: inline-block;
+        width: 0;
+    }
+
+    .caret::after {
+        content: '';
+        position: absolute;
+        left: 1px;
+        bottom: -0.12em;
+        width: 0.5em;
+        height: 1.1em;
+        background: var(--color-accent);
+    }
+
+    .caret.idle::after {
+        animation: blink 1s steps(1) infinite;
+    }
+
+    .caret.gone {
+        opacity: 0;
+        transition: opacity 0.4s ease;
+    }
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
