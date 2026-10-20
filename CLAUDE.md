@@ -10,7 +10,14 @@ New website for phpete.com.
 
 ## Stack
 
-Not decided yet.
+- Laravel 13 with Blade views + Tailwind CSS 4 via Vite
+- **No** Livewire, **no** Inertia
+- **No database**: sessions/cache use `file`, queue is `sync`; no migrations, models, factories or seeders
+- **bun**, not npm: `bun install`, `bun run build`, `bun run dev` (never use npm/npx)
+- PHP 8.5, run via **Laravel Sail** (`compose.yaml`, single `laravel.test` service, no extra services)
+  - `./vendor/bin/sail up -d`, `sail artisan …`, `sail bun …`, `sail down`
+  - Sail serves on port 80 by default; set `APP_PORT` if Herd is using it
+- Dev: `composer dev` / `php artisan dev`; tests: `php artisan test`
 
 ## Workflow rules
 
