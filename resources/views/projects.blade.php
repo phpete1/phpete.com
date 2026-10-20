@@ -11,14 +11,18 @@
                         ])
                     >
                         <span class="inline-flex items-center gap-2.5 text-[17px] font-medium">
-                            {{ $project['name'] }}
-                            @if ($project['soon'])
+                            {{ $project['label'] }}
+                            @if ($project['status'] === 'coming soon')
                                 <span class="font-mono text-[13px] font-normal text-accent">
                                     <span class="mr-1.5 inline-block size-1.5 rounded-full bg-accent align-middle" aria-hidden="true"></span>coming soon
                                 </span>
                             @endif
                         </span>
-                        <span class="font-mono text-[13px] text-muted">{{ $project['tags'] }}</span>
+                        <span class="font-mono text-[13px] text-muted">
+                            @foreach ($project['tags'] as $tag)
+                                @unless ($loop->first) · @endunless{{ $tag }}
+                            @endforeach
+                        </span>
                     </{{ $project['url'] ? 'a' : 'div' }}>
                 </li>
             @endforeach

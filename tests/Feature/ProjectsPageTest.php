@@ -13,7 +13,19 @@ class ProjectsPageTest extends TestCase
         $response->assertOk()
             ->assertViewIs('projects')
             ->assertSee('<title>Projects · phpete.com</title>', false)
-            ->assertSeeInOrder(['phpete1/scholi', 'coming soon', 'phpete1/phpete.com', 'phpete1/setting-store']);
+            ->assertSeeTextInOrder(['php', '·', 'composer']);
+    }
+
+    public function test_live_projects_are_listed_before_coming_soon_ones(): void
+    {
+        $response = $this->get(route('projects'));
+
+        $response->assertSeeInOrder(['phpete1/phpete.com', 'phpete1/setting-store', 'phpete1/scholi', 'coming soon']);
+
+        $this->assertSame(
+            ['live', 'live', 'coming soon'],
+            array_column($response->viewData('projects'), 'status'),
+        );
     }
 
     public function test_only_released_projects_with_a_url_are_linked(): void
