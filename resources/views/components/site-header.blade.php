@@ -1,7 +1,7 @@
 @php
     $links = [
         ['label' => 'home', 'href' => route('home'), 'active' => request()->routeIs('home')],
-        ['label' => 'projects', 'href' => url('/projects'), 'active' => request()->is('projects')],
+        ['label' => 'projects', 'href' => route('projects'), 'active' => request()->routeIs('projects')],
     ];
 @endphp
 
