@@ -12,6 +12,7 @@ class AboutPageTest extends TestCase
 
         $response->assertOk()
             ->assertViewIs('about')
-            ->assertSee('// about');
+            ->assertSee('// about')
+            ->assertSee("Hi, I'm Pete.", false);
     }
 }
