@@ -3,10 +3,21 @@
         <ul>
             @foreach ($projects as $project)
                 <li>
-                    <a href="{{ $project['url'] }}" class="flex flex-wrap justify-between gap-x-4 gap-y-1 border-b border-line py-3.5 hover:text-white">
-                        <span class="text-[17px] font-medium">{{ $project['name'] }}</span>
+                    <{{ $project['url'] ? 'a' : 'div' }}
+                        @if ($project['url']) href="{{ $project['url'] }}" @endif
+                        @class([
+                            'flex flex-wrap justify-between gap-x-4 gap-y-1 border-b border-line py-3.5',
+                            'hover:text-white' => $project['url'],
+                        ])
+                    >
+                        <span class="text-[17px] font-medium">
+                            {{ $project['name'] }}
+                            @if ($project['soon'])
+                                <span class="ml-1.5 font-mono text-[13px] font-normal text-accent">* coming soon</span>
+                            @endif
+                        </span>
                         <span class="font-mono text-[13px] text-muted">{{ $project['tags'] }}</span>
-                    </a>
+                    </{{ $project['url'] ? 'a' : 'div' }}>
                 </li>
             @endforeach
         </ul>

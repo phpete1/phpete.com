@@ -13,7 +13,16 @@ class ProjectsPageTest extends TestCase
         $response->assertOk()
             ->assertViewIs('projects')
             ->assertSee('<title>Projects · phpete.com</title>', false)
-            ->assertSeeInOrder(['Scholi', 'phpete.com']);
+            ->assertSeeInOrder(['phpete1/scholi', '* coming soon', 'phpete1/phpete.com', 'phpete1/setting-store']);
+    }
+
+    public function test_only_released_projects_with_a_url_are_linked(): void
+    {
+        $response = $this->get(route('projects'));
+
+        $response->assertSee('href="https://github.com/phpete1/phpete.com"', false)
+            ->assertDontSee('href="https://github.com/phpete1/scholi"', false)
+            ->assertDontSee('href="https://github.com/phpete1/setting-store"', false);
     }
 
     public function test_the_header_marks_projects_as_the_current_page(): void

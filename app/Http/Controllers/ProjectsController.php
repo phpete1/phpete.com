@@ -11,11 +11,11 @@ class ProjectsController extends Controller
      */
     public function __invoke(): View
     {
-        /** @var list<array{name: string, tags: string, url: string}> $projects */
+        /** @var list<array{name: string, tags: string, url: ?string, soon: bool}> $projects */
         $projects = [
-            ['name' => 'Scholi', 'tags' => 'saas · schools', 'url' => '#'],
-            ['name' => '[composer package]', 'tags' => 'php · composer', 'url' => '#'],
-            ['name' => 'phpete.com', 'tags' => 'this page · source', 'url' => 'https://github.com/phpete1/phpete.com'],
+            ['name' => 'phpete1/scholi', 'tags' => 'saas · schools', 'url' => null, 'soon' => true],
+            ['name' => 'phpete1/phpete.com', 'tags' => 'this page · source', 'url' => 'https://github.com/phpete1/phpete.com', 'soon' => false],
+            ['name' => 'phpete1/setting-store', 'tags' => 'php · composer', 'url' => null, 'soon' => false],
         ];
 
         return view('projects', ['projects' => $projects]);
