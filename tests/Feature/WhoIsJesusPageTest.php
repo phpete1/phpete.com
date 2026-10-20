@@ -12,7 +12,7 @@ class WhoIsJesusPageTest extends TestCase
 
         $response->assertOk()
             ->assertViewIs('who-is-jesus')
-            ->assertSee('<title>Who is Jesus? · phpete.com</title>', false);
+            ->assertSee('<title>Why I follow Jesus · phpete.com</title>', false);
     }
 
     public function test_it_is_linked_from_the_footer_not_the_header(): void
