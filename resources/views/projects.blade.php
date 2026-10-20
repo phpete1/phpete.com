@@ -13,9 +13,8 @@
                         <span class="inline-flex items-center gap-2.5 text-[17px] font-medium">
                             {{ $project['name'] }}
                             @if ($project['soon'])
-                                <span class="inline-flex items-center gap-1.5 font-mono text-[13px] font-normal text-accent">
-                                    <span class="size-1.5 rounded-full bg-accent" aria-hidden="true"></span>
-                                    coming soon
+                                <span class="font-mono text-[13px] font-normal text-accent">
+                                    <span class="mr-1.5 inline-block size-1.5 rounded-full bg-accent align-middle" aria-hidden="true"></span>coming soon
                                 </span>
                             @endif
                         </span>
