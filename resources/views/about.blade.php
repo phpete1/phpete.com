@@ -1,13 +1,17 @@
 <x-layouts.app>
     <x-section label="about" typed>
-        <h1 class="text-[32px] font-semibold tracking-tight">Pete</h1>
+        <h1 class="text-[32px] font-semibold tracking-tight">Hi, I'm Pete.</h1>
 
         <p class="text-lg leading-[1.7] text-text-soft">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            I'm a husband, father and follower of Christ.
         </p>
 
         <p class="text-lg leading-[1.7] text-text-soft">
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.
+            I build Laravel apps for a living and contribute to the open source community.
+        </p>
+
+        <p class="text-lg leading-[1.7] text-text-soft">
+            In my spare time I write <a href="https://soundcloud.com/jerzykmusic" class="text-text underline decoration-line decoration-1 underline-offset-4 transition-colors hover:text-accent hover:decoration-accent">my own music</a> and play piano.
         </p>
     </x-section>
 </x-layouts.app>
