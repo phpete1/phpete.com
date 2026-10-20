@@ -13,7 +13,7 @@ class ProjectsPageTest extends TestCase
         $response->assertOk()
             ->assertViewIs('projects')
             ->assertSee('<title>Projects · phpete.com</title>', false)
-            ->assertSeeInOrder(['phpete1/scholi', '* coming soon', 'phpete1/phpete.com', 'phpete1/setting-store']);
+            ->assertSeeInOrder(['phpete1/scholi', 'coming soon', 'phpete1/phpete.com', 'phpete1/setting-store']);
     }
 
     public function test_only_released_projects_with_a_url_are_linked(): void

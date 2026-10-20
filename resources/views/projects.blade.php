@@ -10,10 +10,13 @@
                             'hover:text-white' => $project['url'],
                         ])
                     >
-                        <span class="text-[17px] font-medium">
+                        <span class="inline-flex items-center gap-2.5 text-[17px] font-medium">
                             {{ $project['name'] }}
                             @if ($project['soon'])
-                                <span class="ml-1.5 font-mono text-[13px] font-normal text-accent">* coming soon</span>
+                                <span class="inline-flex items-center gap-1.5 font-mono text-[13px] font-normal text-accent">
+                                    <span class="size-1.5 rounded-full bg-accent" aria-hidden="true"></span>
+                                    coming soon
+                                </span>
                             @endif
                         </span>
                         <span class="font-mono text-[13px] text-muted">{{ $project['tags'] }}</span>
