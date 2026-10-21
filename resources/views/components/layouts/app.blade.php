@@ -9,8 +9,25 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>{{ $title ? "{$title} · phpete.com" : 'phpete.com' }}</title>
+        @php
+            $pageTitle = $title ? "{$title} · phpete.com" : 'phpete.com';
+            // Built from APP_URL so links shared from any host point at the real site. Error pages have no route, so get no canonical.
+            $canonical = request()->route() ? rtrim(config('app.url'), '/').(request()->is('/') ? '/' : '/'.request()->path()) : null;
+        @endphp
+
+        <title>{{ $pageTitle }}</title>
         <meta name="description" content="{{ $description }}">
+
+        @if ($canonical)
+            <link rel="canonical" href="{{ $canonical }}">
+            <meta property="og:url" content="{{ $canonical }}">
+        @endif
+        <meta property="og:type" content="website">
+        <meta property="og:site_name" content="phpete.com">
+        <meta property="og:locale" content="en_GB">
+        <meta property="og:title" content="{{ $pageTitle }}">
+        <meta property="og:description" content="{{ $description }}">
+        <meta name="twitter:card" content="summary">
 
         <link rel="icon" href="/favicon.ico" sizes="48x48">
         <link rel="icon" href="/favicon.svg" type="image/svg+xml">
