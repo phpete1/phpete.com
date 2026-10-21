@@ -1,64 +1,47 @@
 <?php
 
-namespace Tests\Feature;
+test('the page lists projects', function () {
+    $response = $this->get(route('projects'));
 
-use Tests\TestCase;
+    $response->assertOk()
+        ->assertViewIs('projects')
+        ->assertSee('<title>Projects · phpete.com</title>', false)
+        ->assertSeeTextInOrder(['php', '·', 'composer']);
+});
 
-class ProjectsPageTest extends TestCase
-{
-    public function test_the_page_lists_projects(): void
-    {
-        $response = $this->get(route('projects'));
+test('live projects are listed before coming soon ones', function () {
+    $response = $this->get(route('projects'));
 
-        $response->assertOk()
-            ->assertViewIs('projects')
-            ->assertSee('<title>Projects · phpete.com</title>', false)
-            ->assertSeeTextInOrder(['php', '·', 'composer']);
-    }
+    $response->assertSeeInOrder(['phpete1/phpete.com', 'phpete1/setting-store', 'phpete1/scholi', 'coming soon']);
 
-    public function test_live_projects_are_listed_before_coming_soon_ones(): void
-    {
-        $response = $this->get(route('projects'));
+    expect(array_column($response->viewData('projects'), 'status'))
+        ->toBe(['live', 'live', 'coming soon']);
+});
 
-        $response->assertSeeInOrder(['phpete1/phpete.com', 'phpete1/setting-store', 'phpete1/scholi', 'coming soon']);
+test('only released projects with a url are linked', function () {
+    $response = $this->get(route('projects'));
 
-        $this->assertSame(
-            ['live', 'live', 'coming soon'],
-            array_column($response->viewData('projects'), 'status'),
-        );
-    }
+    $response->assertSee('href="https://github.com/phpete1/phpete.com"', false)
+        ->assertDontSee('href="https://github.com/phpete1/scholi"', false)
+        ->assertDontSee('href="https://github.com/phpete1/setting-store"', false);
+});
 
-    public function test_only_released_projects_with_a_url_are_linked(): void
-    {
-        $response = $this->get(route('projects'));
+test('this site is tagged as a website', function () {
+    $projects = collect($this->get(route('projects'))->viewData('projects'))->keyBy('label');
 
-        $response->assertSee('href="https://github.com/phpete1/phpete.com"', false)
-            ->assertDontSee('href="https://github.com/phpete1/scholi"', false)
-            ->assertDontSee('href="https://github.com/phpete1/setting-store"', false);
-    }
+    expect($projects['phpete1/phpete.com']['tags'])->toBe(['website']);
+});
 
-    public function test_this_site_is_tagged_as_a_website(): void
-    {
-        $projects = collect($this->get(route('projects'))->viewData('projects'))->keyBy('label');
+test('rows are staggered and tags scramble in', function () {
+    $response = $this->get(route('projects'));
 
-        $this->assertSame(['website'], $projects['phpete1/phpete.com']['tags']);
-    }
+    $response->assertSeeInOrder(['--i: 0', '--i: 1', '--i: 2'], false)
+        ->assertSee('data-scramble', false);
+});
 
-    public function test_rows_are_staggered_and_tags_scramble_in(): void
-    {
-        $response = $this->get(route('projects'));
+test('the header marks projects as the current page', function () {
+    $response = $this->get(route('projects'));
 
-        $response->assertSeeInOrder(['--i: 0', '--i: 1', '--i: 2'], false)
-            ->assertSee('data-scramble', false);
-    }
-
-    public function test_the_header_marks_projects_as_the_current_page(): void
-    {
-        $response = $this->get(route('projects'));
-
-        $this->assertMatchesRegularExpression(
-            '#<a\s+href="'.preg_quote(route('projects'), '#').'"\s+aria-current="page"#',
-            (string) $response->getContent(),
-        );
-    }
-}
+    expect((string) $response->getContent())
+        ->toMatch('#<a\s+href="'.preg_quote(route('projects'), '#').'"\s+aria-current="page"#');
+});
