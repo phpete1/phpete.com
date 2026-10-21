@@ -15,7 +15,7 @@ class NotFoundPageTest extends TestCase
             ->assertSee('~/phpete')
             ->assertSee('// this page doesn&#039;t exist', false)
             ->assertSee('Page not found.')
-            ->assertSee('href="https://biblehub.com/esv/luke/15.htm"', false)
+            ->assertSee('href="https://www.esv.org/Luke+15:4/"', false)
             ->assertSee('href="'.route('home').'"', false);
     }
 
