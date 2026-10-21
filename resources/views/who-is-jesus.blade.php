@@ -1,6 +1,6 @@
 <x-layouts.app title="Who is Jesus" description="Who Jesus is, and why Pete follows him.">
     <x-section label="who is Jesus" typed>
-        <h1 class="text-[32px] font-semibold tracking-tight">Who is Jesus</h1>
+        <h1 class="text-[32px] font-semibold tracking-tight">Our Living Hope.</h1>
 
         <p class="text-lg leading-[1.7] text-text-soft">
             We are all sinners. We have all fallen short of God’s glory, and because of that, our relationship with God is broken.
@@ -23,7 +23,7 @@
         </p>
 
         <p class="text-lg leading-[1.7] text-text-soft">
-            I share this in my portfolio simply because it’s the greatest news I know. If you’d like to learn more, reach out to me on <a href="https://dev-null.sh/@phpete1" class="text-text underline decoration-line decoration-1 underline-offset-4 transition-colors hover:text-accent hover:decoration-accent">/dev/null</a>, or <a href="https://www.christianityexplored.org/" class="text-text underline decoration-line decoration-1 underline-offset-4 transition-colors hover:text-accent hover:decoration-accent">click this link</a>.
+            I share this in my portfolio simply because it’s the greatest news I know. If you’d like to learn more, reach out to me on <a href="https://dev-null.sh/@phpete1" class="text-text underline decoration-line decoration-1 underline-offset-4 transition-colors hover:text-accent hover:decoration-accent">/dev/null</a>, or <a href="https://www.christianityexplored.org/" class="text-text underline decoration-line decoration-1 underline-offset-4 transition-colors hover:text-accent hover:decoration-accent">visit Christianity Explored</a>.
             <x-ref ref="Romans 1:16" />
         </p>
     </x-section>
