@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.5'
+          coverage: none
+
+      - uses: oven-sh/setup-bun@v2
+
+      - name: Install PHP dependencies
+        run: composer install --no-interaction --prefer-dist --no-progress
+
+      - name: Install JS dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Prepare environment
+        run: |
+          cp .env.example .env
+          php artisan key:generate
+
+      # The views use @vite, so tests need the built manifest.
+      - name: Build assets
+        run: bun run build
+
+      - name: Pint
+        run: vendor/bin/pint --test
+
+      - name: Larastan
+        run: composer analyse
+
+      - name: Tests
+        run: php artisan test
