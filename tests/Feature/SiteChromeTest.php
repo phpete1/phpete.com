@@ -14,6 +14,19 @@ class SiteChromeTest extends TestCase
             ->assertSee('href="https://dev-null.sh/@phpete1"', false);
     }
 
+    public function test_the_header_icons_are_sized_without_css(): void
+    {
+        $header = str($this->get(route('home'))->getContent())->between('<header', '</header>');
+
+        // Without width/height an SVG fills the screen until the stylesheet arrives.
+        $this->assertSame(3, preg_match_all('/<svg\b[^>]*>/', $header, $svgs));
+
+        foreach ($svgs[0] as $svg) {
+            $this->assertMatchesRegularExpression('/\bwidth="\d+"/', $svg);
+            $this->assertMatchesRegularExpression('/\bheight="18"/', $svg);
+        }
+    }
+
     public function test_pages_reference_the_favicons(): void
     {
         $this->get(route('home'))
