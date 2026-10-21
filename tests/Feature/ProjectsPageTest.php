@@ -37,6 +37,13 @@ class ProjectsPageTest extends TestCase
             ->assertDontSee('href="https://github.com/phpete1/setting-store"', false);
     }
 
+    public function test_this_site_is_tagged_as_a_website(): void
+    {
+        $projects = collect($this->get(route('projects'))->viewData('projects'))->keyBy('label');
+
+        $this->assertSame(['website'], $projects['phpete1/phpete.com']['tags']);
+    }
+
     public function test_rows_are_staggered_and_tags_scramble_in(): void
     {
         $response = $this->get(route('projects'));

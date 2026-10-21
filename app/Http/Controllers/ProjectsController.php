@@ -23,7 +23,7 @@ class ProjectsController extends Controller
                 'label' => 'phpete1/phpete.com',
                 'url' => 'https://github.com/phpete1/phpete.com',
                 'status' => 'live',
-                'tags' => ['this page', 'source'],
+                'tags' => ['website'],
             ],
             [
                 'label' => 'phpete1/setting-store',
