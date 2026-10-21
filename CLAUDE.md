@@ -40,4 +40,16 @@ New website for phpete.com.
 
 ## Conventions
 
-To be added as the project takes shape.
+### Testing
+
+- All tests use **Pest** (`pestphp/pest` with the Laravel plugin), never PHPUnit-style test classes.
+- Write tests as closures, e.g.
+
+  ```php
+  test('the homepage shows the about page', function () {
+      $this->get(route('home'))->assertOk();
+  });
+  ```
+
+  not `public function test_something_works(): void { … }` methods on a `TestCase` class.
+- Shared setup (base `TestCase`, traits) is applied in `tests/Pest.php` via `pest()->extend(...)->in(...)`, not per file.
