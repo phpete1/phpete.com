@@ -1,4 +1,4 @@
-<x-layouts.app title="Projects" description="Things Pete is building.">
+<x-layouts.app title="Projects" description="Things I'm building.">
     <x-section label="projects">
         <ul>
             @foreach ($projects as $project)

@@ -12,6 +12,10 @@
         <title>{{ $title ? "{$title} · phpete.com" : 'phpete.com' }}</title>
         <meta name="description" content="{{ $description }}">
 
+        <link rel="icon" href="/favicon.ico" sizes="48x48">
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
         {{-- Hide [data-type] text before first paint so it can type in; skipped for reduced motion. Safety net un-hides it if the script never runs. --}}
         <script>
             if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {

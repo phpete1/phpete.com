@@ -8,8 +8,13 @@
         </p>
 
         <p class="text-lg leading-[1.7] text-text-soft">
-            Christ came into this world not to condemn or to judge, but to restore our relationship with God the Father. He did this by dying on the cross, bearing our sin and paying its penalty in full. He did this out of pure love and absolute forgiveness.
-            <x-ref ref="John 3:17" /> <x-ref ref="1 Peter 2:24" /> <x-ref ref="Romans 5:8" />
+            Christ came into this world not to condemn or to judge, but to restore our relationship with God the Father. He did this by dying on the cross, bearing our sin and paying its penalty in full.
+            <x-ref ref="John 3:17" /> <x-ref ref="1 Peter 2:24" />
+        </p>
+
+        <p class="text-lg leading-[1.7] text-text-soft">
+            He did this out of pure love and absolute forgiveness.
+            <x-ref ref="Romans 5:8" />
         </p>
 
         <p class="text-lg leading-[1.7] text-text-soft">
@@ -18,7 +23,7 @@
         </p>
 
         <p class="text-lg leading-[1.7] text-text-soft">
-            I share this in my portfolio simply because it’s the greatest news I know. If you’d like to learn more, reach out to me on <a href="#" class="text-text underline decoration-line decoration-1 underline-offset-4 transition-colors hover:text-accent hover:decoration-accent">/dev/null</a>, or <a href="#" class="text-text underline decoration-line decoration-1 underline-offset-4 transition-colors hover:text-accent hover:decoration-accent">click this link</a>.
+            I share this in my portfolio simply because it’s the greatest news I know. If you’d like to learn more, reach out to me on <a href="https://dev-null.sh/@phpete1" class="text-text underline decoration-line decoration-1 underline-offset-4 transition-colors hover:text-accent hover:decoration-accent">/dev/null</a>, or <a href="https://www.christianityexplored.org/" class="text-text underline decoration-line decoration-1 underline-offset-4 transition-colors hover:text-accent hover:decoration-accent">click this link</a>.
             <x-ref ref="Romans 1:16" />
         </p>
     </x-section>
