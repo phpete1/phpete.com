@@ -12,7 +12,7 @@ class WhoIsJesusPageTest extends TestCase
 
         $response->assertOk()
             ->assertViewIs('who-is-jesus')
-            ->assertSee('<title>Why I follow Jesus · phpete.com</title>', false)
+            ->assertSee('<title>Who is Jesus · phpete.com</title>', false)
             ->assertSee('href="https://dev-null.sh/@phpete1"', false)
             ->assertSee('href="https://www.christianityexplored.org/"', false);
     }

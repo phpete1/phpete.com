@@ -1,6 +1,6 @@
-<x-layouts.app title="Why I follow Jesus" description="Why Pete follows Jesus Christ.">
-    <x-section label="why I follow Jesus" typed>
-        <h1 class="text-[32px] font-semibold tracking-tight">Why I follow Jesus</h1>
+<x-layouts.app title="Who is Jesus" description="Who Jesus is, and why Pete follows him.">
+    <x-section label="who is Jesus" typed>
+        <h1 class="text-[32px] font-semibold tracking-tight">Who is Jesus</h1>
 
         <p class="text-lg leading-[1.7] text-text-soft">
             We are all sinners. We have all fallen short of God’s glory, and because of that, our relationship with God is broken.
