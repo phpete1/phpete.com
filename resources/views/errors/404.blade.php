@@ -1,9 +1,10 @@
 <x-layouts.app title="Not found" description="This page doesn't exist.">
-    <x-section label="404" typed>
+    <x-section label="this page doesn't exist" typed>
         <h1 class="text-[32px] font-semibold tracking-tight">Page not found.</h1>
 
         <p class="text-lg leading-[1.7] text-text-soft">
-            There's nothing at this address. It may have moved, or never existed.
+            Looks like you've wandered off. Good news: the shepherd leaves the ninety-nine to go after the one that's lost.
+            <x-ref ref="Luke 15:4" />
         </p>
 
         <p class="text-lg leading-[1.7] text-text-soft">
