@@ -8,6 +8,7 @@
                         @class([
                             'enter-row flex flex-wrap justify-between gap-x-4 gap-y-1 py-3.5',
                             'hover:text-white' => $project['url'],
+                            'cursor-progress' => $project['status'] === 'coming soon',
                         ])
                     >
                         <span class="enter-rise inline-flex items-center gap-2.5 text-[17px] font-medium">
