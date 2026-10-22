@@ -35,3 +35,11 @@ export function scramble() {
         requestAnimationFrame(frame);
     });
 }
+
+// Resolve every scrambled element to its final text straight away.
+export function finishScramble() {
+    document.querySelectorAll('[data-scramble][aria-label]').forEach((el) => {
+        el.textContent = el.getAttribute('aria-label');
+        el.style.opacity = '1';
+    });
+}

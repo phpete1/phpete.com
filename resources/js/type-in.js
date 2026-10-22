@@ -49,3 +49,9 @@ export function typeIn() {
     };
     requestAnimationFrame(frame);
 }
+
+// Show all typed text at once and drop the caret.
+export function finishTypeIn() {
+    document.querySelectorAll('.tw').forEach((span) => span.classList.add('on'));
+    document.querySelectorAll('.caret').forEach((caret) => caret.remove());
+}
