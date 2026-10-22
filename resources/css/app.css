@@ -63,6 +63,15 @@
         visibility: hidden;
     }
 
+    /* A space's width inside each bracket: "[ home ]". */
+    .menu-bracket-open {
+        margin-right: 1ch;
+    }
+
+    .menu-bracket-close {
+        margin-left: 1ch;
+    }
+
     .menu-item[aria-current='page'] .menu-bracket {
         visibility: visible;
     }

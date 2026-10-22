@@ -7,12 +7,12 @@
 
 <header class="flex items-center gap-x-2 gap-y-1 border-b border-line pt-7 pb-[18px] font-mono text-[13px] max-sm:gap-x-1 sm:flex-wrap">
     <nav class="flex items-center gap-x-2 gap-y-1 max-sm:gap-x-1 sm:flex-wrap" aria-label="Main" preload="mouseover">
-        <a href="{{ route('home') }}" class="mr-4 whitespace-nowrap hover:text-white max-sm:mr-2">~/phpete</a>
+        <a href="{{ route('home') }}" class="mr-4 whitespace-nowrap hover:text-white max-sm:mr-1">~/phpete</a>
         @foreach ($links as $link)
             <a
                 href="{{ $link['href'] }}"
                 @if ($link['active']) aria-current="page" @endif
-                class="menu-item inline-flex min-h-9 items-center px-1.5 text-muted hover:text-white aria-[current=page]:text-accent max-sm:px-1"
+                class="menu-item inline-flex min-h-9 items-center px-1.5 text-muted hover:text-white aria-[current=page]:text-accent max-sm:px-0"
             ><span class="menu-bracket menu-bracket-open" aria-hidden="true">[</span>{{ $link['label'] }}<span class="menu-bracket menu-bracket-close" aria-hidden="true">]</span></a>
         @endforeach
     </nav>
