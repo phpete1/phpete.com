@@ -44,7 +44,8 @@
         @fonts
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body>
+    {{-- Internal links swap the page in place instead of reloading it; links marked `preload` fetch on hover (resources/js/app.js). --}}
+    <body hx-boost="true" hx-ext="preload">
         <div class="mx-auto flex min-h-svh w-full max-w-[1080px] flex-col px-4">
             <x-site-header />
 
