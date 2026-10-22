@@ -13,7 +13,7 @@
                 href="{{ $link['href'] }}"
                 @if ($link['active']) aria-current="page" @endif
                 class="menu-item inline-flex min-h-9 items-center px-1.5 text-muted hover:text-white aria-[current=page]:text-accent max-sm:px-1"
-            >{{ $link['label'] }}</a>
+            ><span class="menu-bracket menu-bracket-open" aria-hidden="true">[</span>{{ $link['label'] }}<span class="menu-bracket menu-bracket-close" aria-hidden="true">]</span></a>
         @endforeach
     </nav>
 
