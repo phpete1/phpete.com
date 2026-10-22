@@ -6,7 +6,7 @@
 @endphp
 
 <header class="flex items-center gap-x-2 gap-y-1 border-b border-line pt-7 pb-[18px] font-mono text-[13px] max-sm:gap-x-1 sm:flex-wrap">
-    <nav class="flex items-center gap-x-2 gap-y-1 max-sm:gap-x-1 sm:flex-wrap" aria-label="Main">
+    <nav class="flex items-center gap-x-2 gap-y-1 max-sm:gap-x-1 sm:flex-wrap" aria-label="Main" preload="mouseover">
         <a href="{{ route('home') }}" class="mr-4 whitespace-nowrap hover:text-white max-sm:mr-2">~/phpete</a>
         @foreach ($links as $link)
             <a
