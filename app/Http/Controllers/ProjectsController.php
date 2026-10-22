@@ -26,9 +26,9 @@ class ProjectsController extends Controller
                 'tags' => ['website'],
             ],
             [
-                'label' => 'phpete1/setting-store',
+                'label' => 'phpete1/settings-store',
                 'url' => null,
-                'status' => 'live',
+                'status' => 'coming soon',
                 'tags' => ['php', 'composer'],
             ],
         ];
