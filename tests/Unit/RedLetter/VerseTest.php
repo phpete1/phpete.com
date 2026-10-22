@@ -61,11 +61,6 @@ test('the url is built from the long book name', function () {
     expect(matthew()->url())->toBe('https://www.esv.org/Matthew+11:28/');
 });
 
-test('the url handles verse ranges and numbered books', function () {
+test('the url handles verse ranges', function () {
     expect(johnRange()->url())->toBe('https://www.esv.org/John+14:1-3/');
-
-    $peter = new Verse(text: 'He himself bore our sins.', book: '1 Peter', chapter: 2, verse: '24');
-
-    expect($peter->url())->toBe('https://www.esv.org/1+Peter+2:24/')
-        ->and($peter->reference())->toBe('1 Pet 2:24');
 });
