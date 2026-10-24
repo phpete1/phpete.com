@@ -49,7 +49,7 @@
         <div class="mx-auto flex min-h-svh w-full max-w-[1080px] flex-col px-4">
             <x-site-header />
 
-            <main class="flex flex-auto flex-col justify-center py-18 max-sm:py-12">
+            <main class="flex flex-auto flex-col justify-center py-18 max-sm:py-12 sm:px-6">
                 {{ $slot }}
             </main>
 
