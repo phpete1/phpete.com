@@ -17,7 +17,7 @@
         @endforeach
     </nav>
 
-    <nav class="ml-auto flex items-center" aria-label="Elsewhere">
+    <nav class="ml-auto flex items-center max-sm:-mr-[7px]" aria-label="Elsewhere">
         <a href="https://gitlab.com/phpete1" aria-label="GitLab" title="GitLab" class="group inline-flex size-9 items-center justify-center max-sm:w-8">
             <svg class="block h-[18px] w-auto" width="19" height="18" aria-hidden="true" focusable="false" viewBox="1 3 126 122"><path class="fill-muted transition-[fill] group-hover:fill-[#E24329] group-focus-visible:fill-[#E24329]" d="m124.755 51.382-.177-.452L107.47 6.282a4.459 4.459 0 0 0-1.761-2.121 4.581 4.581 0 0 0-5.236.281 4.578 4.578 0 0 0-1.518 2.304L87.404 42.088H40.629L29.077 6.746a4.492 4.492 0 0 0-1.518-2.31 4.581 4.581 0 0 0-5.236-.281 4.502 4.502 0 0 0-1.761 2.121L3.422 50.904l-.17.452c-5.059 13.219-.763 28.192 10.537 36.716l.059.046.157.111 26.061 19.516 12.893 9.758 7.854 5.93a5.283 5.283 0 0 0 6.388 0l7.854-5.93 12.893-9.758 26.218-19.634.065-.052c11.273-8.526 15.562-23.472 10.524-36.677z"/><path class="fill-muted transition-[fill] group-hover:fill-[#FC6D26] group-focus-visible:fill-[#FC6D26]" d="m124.755 51.382-.177-.452a57.79 57.79 0 0 0-23.005 10.341L64 89.682c12.795 9.68 23.934 18.09 23.934 18.09l26.218-19.634.065-.052c11.291-8.527 15.586-23.488 10.538-36.704z"/><path class="fill-muted transition-[fill] group-hover:fill-[#FCA326] group-focus-visible:fill-[#FCA326]" d="m40.066 107.771 12.893 9.758 7.854 5.93a5.283 5.283 0 0 0 6.388 0l7.854-5.93 12.893-9.758s-11.152-8.436-23.947-18.09a18379.202 18379.202 0 0 0-23.935 18.09z"/><path class="fill-muted transition-[fill] group-hover:fill-[#FC6D26] group-focus-visible:fill-[#FC6D26]" d="M26.42 61.271A57.73 57.73 0 0 0 3.422 50.904l-.17.452c-5.059 13.219-.763 28.192 10.537 36.716l.059.046.157.111 26.061 19.516L64 89.655 26.42 61.271z"/></svg>
         </a>
@@ -29,9 +29,8 @@
         </a>
     </nav>
 
-    {{-- Hidden until the head script has set a theme, since it can't work without JavaScript (resources/js/theme.js). --}}
-    <button type="button" data-theme-toggle aria-label="Switch theme" title="Switch theme" class="group -mr-[9px] hidden size-9 cursor-pointer items-center justify-center light:inline-flex dark:inline-flex max-sm:-mr-[7px] max-sm:w-8">
-        <svg class="block h-[18px] w-auto light:hidden" width="18" height="18" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><g class="stroke-muted transition-[stroke] group-hover:stroke-strong group-focus-visible:stroke-strong"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></g></svg>
-        <svg class="block h-[18px] w-auto dark:hidden" width="18" height="18" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path class="fill-muted transition-[fill] group-hover:fill-strong group-focus-visible:fill-strong" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-    </button>
+    {{-- On mobile the header has no room for it, so it sits in the footer instead. --}}
+    <div class="-mr-[9px] max-sm:hidden">
+        <x-theme-toggle />
+    </div>
 </header>

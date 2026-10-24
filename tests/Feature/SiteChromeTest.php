@@ -42,3 +42,10 @@ test('the theme is set before the stylesheet loads', function () {
     // Otherwise the page paints in the system theme first and flashes when a saved choice differs.
     expect($head->before('<link rel="stylesheet"')->value())->toContain("localStorage.getItem('theme')");
 });
+
+test('the theme toggle is in the header for desktop and the footer for mobile', function () {
+    $html = str($this->get(route('home'))->getContent());
+
+    expect($html->between('<header', '</header>')->value())->toContain('data-theme-toggle')
+        ->and($html->between('<footer', '</footer>')->value())->toContain('data-theme-toggle');
+});
