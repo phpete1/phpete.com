@@ -16,6 +16,22 @@
     --font-serif: var(--font-newsreader), Georgia, serif;
 }
 
+/* Seasonal accents, switched by date (<html data-season>, App\Season). Autumn keeps the default orange.
+   Each is light-dark(light, dark) so it suits either colour scheme. */
+@layer base {
+    html[data-season='winter'] {
+        --color-accent: light-dark(#2f63a0, #7aa7d9);
+    }
+
+    html[data-season='spring'] {
+        --color-accent: light-dark(#3f7a2a, #8cc56f);
+    }
+
+    html[data-season='summer'] {
+        --color-accent: light-dark(#946500, #e9b440);
+    }
+}
+
 @layer base {
     html {
         color-scheme: dark;
@@ -40,8 +56,8 @@
 
     body::before {
         background:
-            radial-gradient(ellipse 70% 45% at 50% 110%, rgb(232 102 76 / 0.13), transparent 70%),
-            radial-gradient(ellipse 45% 35% at 100% 0%, rgb(240 150 90 / 0.05), transparent 70%);
+            radial-gradient(ellipse 70% 45% at 50% 110%, color-mix(in srgb, var(--color-accent) 13%, transparent), transparent 70%),
+            radial-gradient(ellipse 45% 35% at 100% 0%, color-mix(in srgb, var(--color-accent) 5%, transparent), transparent 70%);
     }
 
     body::after {
