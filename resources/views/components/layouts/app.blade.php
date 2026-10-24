@@ -4,7 +4,8 @@
 ])
 
 <!DOCTYPE html>
-<html lang="en-GB">
+{{-- The season picks the accent colour (resources/css/app.css). --}}
+<html lang="en-GB" data-season="{{ App\Season::of(now())->value }}">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -59,7 +60,7 @@
         <div class="mx-auto flex min-h-svh w-full max-w-[1080px] flex-col px-4">
             <x-site-header />
 
-            <main class="flex flex-auto flex-col justify-center py-18 max-sm:py-12">
+            <main class="flex flex-auto flex-col justify-center py-18 max-sm:py-12 sm:px-6">
                 {{ $slot }}
             </main>
 
