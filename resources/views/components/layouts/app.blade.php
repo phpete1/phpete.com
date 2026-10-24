@@ -33,6 +33,16 @@
         <link rel="icon" href="/favicon.svg" type="image/svg+xml">
         <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
+        {{-- Set the theme before first paint: the toggle's saved choice, else the system's (resources/js/theme.js keeps it in sync). --}}
+        <script>
+            try {
+                document.documentElement.dataset.theme = localStorage.getItem('theme')
+                    ?? (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+            } catch {
+                document.documentElement.dataset.theme = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+            }
+        </script>
+
         {{-- Hide [data-type] text before first paint so it can type in; skipped for reduced motion. Safety net un-hides it if the script never runs. --}}
         <script>
             if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {

@@ -7,7 +7,7 @@
                         @if ($project['url']) href="{{ $project['url'] }}" @endif
                         @class([
                             'enter-row flex flex-wrap justify-between gap-x-4 gap-y-1 py-3.5',
-                            'hover:text-white' => $project['url'],
+                            'hover:text-strong' => $project['url'],
                             'cursor-progress' => $project['status'] === 'coming soon',
                         ])
                     >
