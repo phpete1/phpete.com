@@ -4,7 +4,8 @@
 ])
 
 <!DOCTYPE html>
-<html lang="en-GB">
+{{-- The season picks the accent colour (resources/css/app.css). --}}
+<html lang="en-GB" data-season="{{ App\Season::of(now())->value }}">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
