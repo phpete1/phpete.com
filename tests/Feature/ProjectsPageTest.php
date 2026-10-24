@@ -15,5 +15,5 @@ test('only released projects with a url are linked', function () {
 
 test('the header marks projects as the current page', function () {
     expect((string) $this->get(route('projects'))->getContent())
-        ->toMatch('#<a\s+href="'.preg_quote(route('projects'), '#').'"\s+aria-current="page"#');
+        ->toMatch('#<a\s+href="'.preg_quote(route('projects'), '#').'"[^>]*\saria-current="page"#');
 });
