@@ -23,6 +23,16 @@ export default defineConfig({
         }),
         tailwindcss(),
     ],
+    build: {
+        rolldownOptions: {
+            // htmx's source contains a direct eval (for hx-on and js: values), which the bundler warns about on every
+            // build. The site uses neither and turns eval off at runtime (resources/js/app.js), so drop just that warning.
+            onLog(level, log, handler) {
+                if (log.code === 'EVAL' && log.id?.includes('/node_modules/htmx.org/')) return;
+                handler(level, log);
+            },
+        },
+    },
     server: {
         watch: {
             ignored: ['**/storage/framework/views/**'],
