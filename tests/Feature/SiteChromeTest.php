@@ -5,7 +5,7 @@ test('the header and footer icons are sized without css', function () {
     $chrome = $html->between('<header', '</header>').$html->between('<footer', '</footer>');
 
     // Without width/height an SVG fills the screen until the stylesheet arrives.
-    expect(preg_match_all('/<svg\b[^>]*>/', $chrome, $svgs))->toBe(5);
+    expect(preg_match_all('/<svg\b[^>]*>/', $chrome, $svgs))->toBe(6);
 
     foreach ($svgs[0] as $svg) {
         expect($svg)
