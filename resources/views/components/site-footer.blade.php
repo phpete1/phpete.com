@@ -4,7 +4,7 @@
 @endphp
 
 <footer class="mt-auto flex flex-col items-start gap-5 border-t border-line pt-[22px] pb-7">
-    <a href="{{ route('who-is-jesus') }}" preload="mouseover" aria-keyshortcuts="V J" class="group block">
+    <a href="{{ route('who-is-jesus') }}" preload="preload:intent" aria-keyshortcuts="V J" class="group block">
         <figure class="flex flex-wrap items-baseline gap-x-5 gap-y-1.5">
             <blockquote class="font-serif text-[19px] leading-normal text-accent italic">
                 <p>{{ $verse->text(quote: '“') }}</p>

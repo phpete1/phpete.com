@@ -1,6 +1,7 @@
 import htmx from 'htmx.org';
 import 'htmx-ext-preload';
 import { dialogs } from './dialogs';
+import { preload } from './preload';
 import { finishScramble, scramble } from './scramble';
 import { shortcuts } from './shortcuts';
 import { theme } from './theme';
@@ -13,6 +14,7 @@ htmx.config.globalViewTransitions = true;
 htmx.config.allowEval = false;
 
 dialogs();
+preload();
 shortcuts();
 theme();
 typeIn();
