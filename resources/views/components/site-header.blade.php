@@ -1,7 +1,7 @@
 @php
     $links = [
-        ['label' => 'home', 'href' => route('home'), 'active' => request()->routeIs('home')],
-        ['label' => 'projects', 'href' => route('projects'), 'active' => request()->routeIs('projects')],
+        ['label' => 'home', 'href' => route('home'), 'active' => request()->routeIs('home'), 'shortcut' => 'H'],
+        ['label' => 'projects', 'href' => route('projects'), 'active' => request()->routeIs('projects'), 'shortcut' => 'P'],
     ];
 @endphp
 
@@ -11,6 +11,7 @@
         @foreach ($links as $link)
             <a
                 href="{{ $link['href'] }}"
+                aria-keyshortcuts="{{ $link['shortcut'] }}"
                 @if ($link['active']) aria-current="page" @endif
                 class="menu-item inline-flex min-h-9 items-center text-muted hover:text-strong aria-[current=page]:text-accent"
             ><span class="menu-bracket menu-bracket-open" aria-hidden="true">[</span>{{ $link['label'] }}<span class="menu-bracket menu-bracket-close" aria-hidden="true">]</span></a>
