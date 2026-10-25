@@ -4,7 +4,7 @@ test('the header icons are sized without css', function () {
     $header = str($this->get(route('home'))->getContent())->between('<header', '</header>');
 
     // Without width/height an SVG fills the screen until the stylesheet arrives.
-    expect(preg_match_all('/<svg\b[^>]*>/', $header, $svgs))->toBe(3);
+    expect(preg_match_all('/<svg\b[^>]*>/', $header, $svgs))->toBe(5);
 
     foreach ($svgs[0] as $svg) {
         expect($svg)
@@ -34,4 +34,18 @@ test('the 404 page has no canonical url', function () {
     $this->get('/does-not-exist')
         ->assertNotFound()
         ->assertDontSee('rel="canonical"', false);
+});
+
+test('the theme is set before the stylesheet loads', function () {
+    $head = str($this->get(route('home'))->getContent())->before('</head>');
+
+    // Otherwise the page paints in the system theme first and flashes when a saved choice differs.
+    expect($head->before('<link rel="stylesheet"')->value())->toContain("localStorage.getItem('theme')");
+});
+
+test('the theme toggle is in the header for desktop and the footer for mobile', function () {
+    $html = str($this->get(route('home'))->getContent());
+
+    expect($html->between('<header', '</header>')->value())->toContain('data-theme-toggle')
+        ->and($html->between('<footer', '</footer>')->value())->toContain('data-theme-toggle');
 });

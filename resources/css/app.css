@@ -3,23 +3,53 @@
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
 
+/* Light or dark follows the system unless the toggle has picked one: <html data-theme> (layouts/app.blade.php). */
+@custom-variant light (&:where([data-theme='light'], [data-theme='light'] *));
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+/* Each colour is light-dark(light, dark), resolved by the page's color-scheme. */
 @theme {
-    --color-bg: #121110;
-    --color-line: #262321;
-    --color-text: #ebe4da;
-    --color-text-soft: #b4aca2;
-    --color-muted: #8f877d;
-    --color-accent: #e8664c;
+    --color-bg: light-dark(#f6f1e9, #121110);
+    --color-line: light-dark(#e2dace, #262321);
+    --color-text: light-dark(#1f1b17, #ebe4da);
+    --color-text-soft: light-dark(#4d463f, #b4aca2);
+    --color-muted: light-dark(#736a60, #8f877d);
+    --color-strong: light-dark(#000, #fff);
+    --color-accent: light-dark(#c2462d, #e8664c);
 
     --font-sans: var(--font-geist), system-ui, sans-serif;
     --font-mono: var(--font-geist-mono), ui-monospace, monospace;
     --font-serif: var(--font-newsreader), Georgia, serif;
 }
 
+/* Seasonal accents, switched by date (<html data-season>, App\Season). Autumn keeps the default orange.
+   Each is light-dark(light, dark) so it suits either colour scheme. */
+@layer base {
+    html[data-season='winter'] {
+        --color-accent: light-dark(#2f63a0, #7aa7d9);
+    }
+
+    html[data-season='spring'] {
+        --color-accent: light-dark(#3f7a2a, #8cc56f);
+    }
+
+    html[data-season='summer'] {
+        --color-accent: light-dark(#946500, #e9b440);
+    }
+}
+
 @layer base {
     html {
-        color-scheme: dark;
+        color-scheme: light dark;
         background-color: var(--color-bg);
+    }
+
+    html[data-theme='light'] {
+        color-scheme: light;
+    }
+
+    html[data-theme='dark'] {
+        color-scheme: dark;
     }
 
     body {
@@ -40,12 +70,12 @@
 
     body::before {
         background:
-            radial-gradient(ellipse 70% 45% at 50% 110%, rgb(232 102 76 / 0.13), transparent 70%),
-            radial-gradient(ellipse 45% 35% at 100% 0%, rgb(240 150 90 / 0.05), transparent 70%);
+            radial-gradient(ellipse 70% 45% at 50% 110%, color-mix(in srgb, var(--color-accent) 13%, transparent), transparent 70%),
+            radial-gradient(ellipse 45% 35% at 100% 0%, color-mix(in srgb, var(--color-accent) 5%, transparent), transparent 70%);
     }
 
     body::after {
-        background-image: radial-gradient(rgb(235 228 218 / 0.07) 1px, transparent 1px);
+        background-image: radial-gradient(color-mix(in srgb, var(--color-text) 7%, transparent) 1px, transparent 1px);
         background-size: 24px 24px;
         mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 20%, transparent 75%);
     }

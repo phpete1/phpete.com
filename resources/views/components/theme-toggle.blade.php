@@ -1,0 +1,5 @@
+{{-- Light/dark switch (resources/js/theme.js). Hidden until the head script has set a theme, since it can't work without JavaScript. --}}
+<button type="button" data-theme-toggle aria-label="Switch theme" title="Switch theme" {{ $attributes->class('group hidden size-9 cursor-pointer items-center justify-center light:inline-flex dark:inline-flex') }}>
+    <svg class="block h-[18px] w-auto light:hidden" width="18" height="18" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><g class="stroke-muted transition-[stroke] group-hover:stroke-strong group-focus-visible:stroke-strong"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></g></svg>
+    <svg class="block h-[18px] w-auto dark:hidden" width="18" height="18" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path class="fill-muted transition-[fill] group-hover:fill-strong group-focus-visible:fill-strong" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+</button>

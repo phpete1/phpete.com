@@ -4,7 +4,8 @@
 ])
 
 <!DOCTYPE html>
-<html lang="en-GB">
+{{-- The season picks the accent colour (resources/css/app.css). --}}
+<html lang="en-GB" data-season="{{ App\Season::of(now())->value }}">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,6 +34,16 @@
         <link rel="icon" href="/favicon.svg" type="image/svg+xml">
         <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
+        {{-- Set the theme before first paint: the toggle's saved choice, else the system's (resources/js/theme.js keeps it in sync). --}}
+        <script>
+            try {
+                document.documentElement.dataset.theme = localStorage.getItem('theme')
+                    ?? (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+            } catch {
+                document.documentElement.dataset.theme = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+            }
+        </script>
+
         {{-- Hide [data-type] text before first paint so it can type in; skipped for reduced motion. Safety net un-hides it if the script never runs. --}}
         <script>
             if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -49,7 +60,7 @@
         <div class="mx-auto flex min-h-svh w-full max-w-[1080px] flex-col px-4">
             <x-site-header />
 
-            <main class="flex flex-auto flex-col justify-center py-18 max-sm:py-12">
+            <main class="flex flex-auto flex-col justify-center py-18 max-sm:py-12 sm:px-6">
                 {{ $slot }}
             </main>
 

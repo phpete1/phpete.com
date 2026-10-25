@@ -6,12 +6,13 @@
                     <{{ $project['url'] ? 'a' : 'div' }}
                         @if ($project['url']) href="{{ $project['url'] }}" @endif
                         @class([
-                            'enter-row flex flex-wrap justify-between gap-x-4 gap-y-1 py-3.5',
-                            'hover:text-white' => $project['url'],
+                            'enter-row flex flex-wrap justify-between gap-x-4 gap-y-1 py-3.5 max-sm:flex-nowrap max-sm:items-end',
+                            'hover:text-strong' => $project['url'],
                             'cursor-progress' => $project['status'] === 'coming soon',
                         ])
                     >
-                        <span class="enter-rise inline-flex items-center gap-2.5 text-[17px] font-medium">
+                        {{-- On mobile "coming soon" stacks above the label, leaving the tags room on the right. --}}
+                        <span class="enter-rise inline-flex items-center gap-2.5 text-[17px] font-medium max-sm:flex-col-reverse max-sm:items-start max-sm:gap-1">
                             {{ $project['label'] }}
                             @if ($project['status'] === 'coming soon')
                                 <span class="font-mono text-[13px] font-normal text-accent">
@@ -22,7 +23,7 @@
                                 </span>
                             @endif
                         </span>
-                        <span class="font-mono text-[13px] text-muted" data-scramble>
+                        <span class="font-mono text-[13px] text-muted max-sm:text-right" data-scramble>
                             @foreach ($project['tags'] as $tag)
                                 @unless ($loop->first) · @endunless{{ $tag }}
                             @endforeach
