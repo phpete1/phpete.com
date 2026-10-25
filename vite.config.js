@@ -8,16 +8,21 @@ export default defineConfig({
         laravel({
             input: ['resources/css/app.css', 'resources/js/app.js'],
             refresh: true,
+            // Fontaine sizes an Arial stand-in to match each font while it loads, so text doesn't jump when it swaps in.
+            // It always uses Arial for these fonts, which only suits Geist; Geist Mono and Newsreader keep their
+            // monospace and serif fallbacks from app.css instead.
             fonts: [
                 google('Geist', {
                     weights: [400, 500, 600],
                 }),
                 google('Geist Mono', {
                     weights: [400, 500],
+                    optimizedFallbacks: false,
                 }),
                 google('Newsreader', {
                     weights: [400],
                     styles: ['italic'],
+                    optimizedFallbacks: false,
                 }),
             ],
         }),
