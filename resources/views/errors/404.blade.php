@@ -8,7 +8,7 @@
         </p>
 
         <p class="text-lg leading-[1.7] text-text-soft">
-            <a href="{{ route('home') }}" preload="mouseover" class="text-text underline decoration-line decoration-1 underline-offset-4 transition-colors hover:text-accent hover:decoration-accent">Head back home</a>.
+            <a href="{{ route('home') }}" preload="preload:intent" class="text-text underline decoration-line decoration-1 underline-offset-4 transition-colors hover:text-accent hover:decoration-accent">Head back home</a>.
         </p>
     </x-section>
 </x-layouts.app>
