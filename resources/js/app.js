@@ -1,11 +1,13 @@
 import htmx from 'htmx.org';
 import 'htmx-ext-preload';
 import { finishScramble, scramble } from './scramble';
+import { theme } from './theme';
 import { finishTypeIn, typeIn } from './type-in';
 
 // Swaps run inside a View Transition so the menu brackets can slide to the new page (app.css).
 htmx.config.globalViewTransitions = true;
 
+theme();
 typeIn();
 scramble();
 
