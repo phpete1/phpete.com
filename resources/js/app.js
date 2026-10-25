@@ -9,6 +9,9 @@ import { finishTypeIn, typeIn } from './type-in';
 // Swaps run inside a View Transition so the menu brackets can slide to the new page (app.css).
 htmx.config.globalViewTransitions = true;
 
+// Nothing uses hx-on or js: values, so never let htmx eval strings from the page.
+htmx.config.allowEval = false;
+
 dialogs();
 shortcuts();
 theme();
