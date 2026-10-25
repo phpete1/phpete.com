@@ -22,14 +22,14 @@ New website for phpete.com.
 ## Workflow rules
 
 1. **Every job ends in a pull request.** When given a task, automatically (without asking):
-   - `git checkout stage && git pull` so the branch starts from the latest `stage`,
-   - create a new branch off `stage`,
+   - `git checkout main && git pull` so the branch starts from the latest `main`,
+   - create a new branch off `main`,
    - commit the changes,
    - push the branch to `origin`,
-   - open a pull request into `stage` on GitHub with `gh pr create --base stage`.
+   - open a pull request into `main` on GitHub with `gh pr create --base main`.
 
 2. **Every PR is atomic. Never stack branches.**
-   - One task = one branch = one PR, always branched from `stage` and targeting `stage` (never `main`).
+   - One task = one branch = one PR, always branched from `main` and targeting `main`.
    - Never branch off another feature/fix branch, even if its PR is still open. A PR must show only the commits for its own task.
    - If a task genuinely depends on unmerged work, stop and ask for that PR to be merged first instead of stacking.
    - A PR may contain several commits, as long as they all belong to the same task.
