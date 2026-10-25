@@ -7,7 +7,7 @@ export function shortcuts() {
         if (document.querySelector('dialog[open]')) return;
 
         const key = event.key.toLowerCase();
-        if (!/^[a-z]$/.test(key)) return;
+        if (!/^[a-z?]$/.test(key)) return;
 
         const target = document.querySelector(`a[aria-keyshortcuts~="${key}" i], dialog[aria-keyshortcuts~="${key}" i]`);
         if (!target || target.getAttribute('aria-current') === 'page') return;

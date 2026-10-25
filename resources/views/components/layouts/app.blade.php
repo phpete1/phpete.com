@@ -68,5 +68,6 @@
         </div>
 
         <x-music-dialog />
+        <x-shortcuts-dialog />
     </body>
 </html>

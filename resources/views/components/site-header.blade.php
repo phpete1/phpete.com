@@ -18,7 +18,11 @@
         @endforeach
     </nav>
 
-    <div class="-mr-[9px] ml-auto max-sm:-mr-[7px]">
+    <div class="-mr-[9px] ml-auto flex items-center max-sm:-mr-[7px]">
+        {{-- Phones have no keyboard, so the shortcuts key is desktop only. --}}
+        <button type="button" commandfor="shortcuts" command="show-modal" aria-haspopup="dialog" aria-label="Keyboard shortcuts" title="Keyboard shortcuts (?)" class="group inline-flex size-9 cursor-pointer items-center justify-center max-sm:hidden">
+            <x-svg name="keyboard" />
+        </button>
         <x-theme-toggle />
     </div>
 </header>
