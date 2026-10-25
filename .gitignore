@@ -26,3 +26,7 @@ Homestead.json
 Homestead.yaml
 Thumbs.db
 /prototypes
+
+**/caddy
+frankenphp
+frankenphp-worker.php
