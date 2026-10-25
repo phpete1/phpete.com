@@ -3,7 +3,7 @@
     $verse = \App\RedLetter\RedLetter::today();
 @endphp
 
-<footer class="mt-auto border-t border-line pt-[22px] pb-7">
+<footer class="mt-auto flex flex-col items-start gap-5 border-t border-line pt-[22px] pb-7">
     <a href="{{ route('who-is-jesus') }}" preload="mouseover" aria-keyshortcuts="V J" class="group block">
         <figure class="flex flex-wrap items-baseline gap-x-5 gap-y-1.5">
             <blockquote class="font-serif text-[19px] leading-normal text-accent italic">
@@ -13,8 +13,5 @@
         </figure>
     </a>
 
-    {{-- The header has the toggle on desktop. --}}
-    <div class="-mt-1 -mr-[9px] ml-auto shrink-0 sm:hidden">
-        <x-theme-toggle />
-    </div>
+    <x-socials class="-my-[7px] -ml-[9px]" />
 </footer>

@@ -1,10 +1,11 @@
 <?php
 
-test('the header icons are sized without css', function () {
-    $header = str($this->get(route('home'))->getContent())->between('<header', '</header>');
+test('the header and footer icons are sized without css', function () {
+    $html = str($this->get(route('home'))->getContent());
+    $chrome = $html->between('<header', '</header>').$html->between('<footer', '</footer>');
 
     // Without width/height an SVG fills the screen until the stylesheet arrives.
-    expect(preg_match_all('/<svg\b[^>]*>/', $header, $svgs))->toBe(5);
+    expect(preg_match_all('/<svg\b[^>]*>/', $chrome, $svgs))->toBe(5);
 
     foreach ($svgs[0] as $svg) {
         expect($svg)
@@ -43,9 +44,11 @@ test('the theme is set before the stylesheet loads', function () {
     expect($head->before('<link rel="stylesheet"')->value())->toContain("localStorage.getItem('theme')");
 });
 
-test('the theme toggle is in the header for desktop and the footer for mobile', function () {
+test('the theme toggle is in the header and the socials are in the footer', function () {
     $html = str($this->get(route('home'))->getContent());
+    $header = $html->between('<header', '</header>')->value();
+    $footer = $html->between('<footer', '</footer>')->value();
 
-    expect($html->between('<header', '</header>')->value())->toContain('data-theme-toggle')
-        ->and($html->between('<footer', '</footer>')->value())->toContain('data-theme-toggle');
+    expect($header)->toContain('data-theme-toggle')->not->toContain('aria-label="Elsewhere"')
+        ->and($footer)->toContain('aria-label="Elsewhere"')->not->toContain('data-theme-toggle');
 });
