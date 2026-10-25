@@ -66,5 +66,7 @@
 
             <x-site-footer />
         </div>
+
+        <x-music-dialog />
     </body>
 </html>
