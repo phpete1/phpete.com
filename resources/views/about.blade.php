@@ -1,4 +1,5 @@
 <x-layouts.app>
+    <!-- typed class should add type in effect -->
     <x-section label="about" typed>
         <h1 class="text-[32px] font-semibold tracking-tight">Hi, I'm Pete.</h1>
 
