@@ -26,6 +26,12 @@ class ProjectsController extends Controller
                 'tags' => ['website'],
             ],
             [
+                'label' => 'phpete1/snitch',
+                'url' => 'https://github.com/phpete1/snitch',
+                'status' => 'live',
+                'tags' => ['php', 'composer'],
+            ],
+            [
                 'label' => 'phpete1/settings-store',
                 'url' => null,
                 'status' => 'coming soon',

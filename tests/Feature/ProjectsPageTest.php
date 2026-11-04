@@ -3,7 +3,7 @@
 test('live projects are listed before coming soon ones', function () {
     $statuses = array_column($this->get(route('projects'))->viewData('projects'), 'status');
 
-    expect($statuses)->toBe(['live', 'coming soon', 'coming soon']);
+    expect($statuses)->toBe(['live', 'live', 'coming soon', 'coming soon']);
 });
 
 test('only released projects with a url are linked', function () {
