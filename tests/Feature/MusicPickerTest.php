@@ -1,7 +1,7 @@
 <?php
 
 test('every page has the music picker with each soundcloud profile', function (string $route) {
-    $dialog = str($this->get(route($route))->getContent())->between('<dialog', '</dialog>');
+    $dialog = str($this->get(route($route))->getContent())->between('<dialog id="music"', '</dialog>');
 
     expect($dialog->value())
         ->toContain('id="music"')

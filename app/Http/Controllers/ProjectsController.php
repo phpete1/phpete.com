@@ -11,7 +11,7 @@ class ProjectsController extends Controller
      */
     public function __invoke(): View
     {
-        /** @var list<array{label: string, url: ?string, status: 'live'|'coming soon', tags: list<string>}> $projects */
+        /** @var list<array{label: string, url: ?string, status: 'live'|'coming soon', tags: list<string>, description?: string, command?: string}> $projects */
         $projects = [
             [
                 'label' => 'phpete1/scholi',
@@ -30,6 +30,8 @@ class ProjectsController extends Controller
                 'url' => 'https://github.com/phpete1/snitch',
                 'status' => 'live',
                 'tags' => ['php', 'composer'],
+                'description' => 'Scans your PHP project for leaked secrets, such as API keys, tokens and passwords, with a single command.',
+                'command' => 'composer require --dev phpete1/snitch',
             ],
             [
                 'label' => 'phpete1/settings-store',
